@@ -1,0 +1,90 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	  Scanner ler = new Scanner(System.in);
+	  Random rd = new Random();
+	 
+	  int high = 4;
+	  int low = 1;
+    int v1,v2;
+		int point1 = 0;
+		int point2 = 0;
+		
+		while(point1 != 5 && point2 != 5) {
+		    
+		    System.out.println("*********** Placar ************");
+		    System.out.println("Jogador: " + point1 + " Computador: " + point2);
+		    System.out.println("*******************************");
+		    
+		    System.out.println("Escolha entre 1 2 e 3 , sendo : ");
+    		System.out.println("Pedra = 1 ");
+    		System.out.println("Papel = 2  ");
+    		System.out.println("Tesoura = 3 \n");
+    		
+    		System.out.println("Jogador: ");
+    		v1 = ler.nextInt();
+    		
+    		v2 = rd.nextInt(high - low) + low;
+    		System.out.println("Computador:\n" + v2);
+    
+    
+        System.out.println("\nResultado: ");
+          if(v1 == 1) {
+            if(v2 == 1){
+              System.out.println("Empate, sem pontos recebidos");
+            } else if(v2 == 2) {
+              System.out.println("Computador ganhou");
+              point2++;
+            } else if(v2 == 3) {
+              System.out.println("Jogador ganhou");
+              point1++;
+            } else {
+              System.out.println("Colcou número inválido, sem pontos recebidos");
+            }
+          } else if(v1 == 2) {
+            if(v2 == 1){
+              System.out.println("Jogador ganhou");
+              point1++;
+            } else if(v2 == 2) {
+              System.out.println("Empate, sem pontos recebidos");
+            } else if(v2 == 3) {
+              System.out.println("Computador ganhou");
+              point2++;
+            } else {
+              System.out.println("Colcou número inválido, sem pontos recebidos");
+            }
+          } else if(v1 == 3) {
+            if(v2 == 1){
+              System.out.println("Computador ganhou");
+              point2++;
+            } else if(v2 == 2) {
+              System.out.println("Jogador ganhou");
+              point1++;
+            } else if(v2 == 3) {
+              System.out.println("Empate, sem pontos recebidos");
+            } else {
+              System.out.println("Colcou número inválido, sem pontos recebidos");
+            }
+          } else {
+            System.out.println("Número inválido, sem pontos recebidos");
+          }
+            
+		    System.out.println("\nFIM DA RODADA\n");
+		}
+		
+		if(point1 > point2) {
+        System.out.println("************************\n************************");
+		    System.out.println("JOGADOR VENCEU O JOGO!");
+        System.out.println("************************\n************************");
+		} else {
+		    System.out.println("************************\n************************");
+		    System.out.println("COMPUTADOR VENCEU O JOGO!");
+        System.out.println("************************\n************************");
+		}
+
+  }
+}
